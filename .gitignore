@@ -1,0 +1,4 @@
+venv
+log/*
+news_items/*
+__pycache__
