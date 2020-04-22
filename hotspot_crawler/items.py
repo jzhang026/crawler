@@ -44,3 +44,5 @@ class HotspotCrawlerItem(Item):
     comment_list = Field()
     # 新闻摘要
     abstract = Field(serializer=str, input_processor=MapCompose(HotspotCrawlerItemLoader.remove_spaces_and_comments))
+class DoubanMovie(Item):
+    comment = Field(serializer=str, input_processor=MapCompose(HotspotCrawlerItemLoader.remove_spaces_and_comments))

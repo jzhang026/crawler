@@ -39,7 +39,7 @@ class ImageGettingPipeline(object):
 
 class BlogscrapyPipeline(object):
     def __init__(self):
-        self.file = open('blog.json', 'a+', encoding='utf-8')
+        self.file = open('../new_items/blog.json', 'a+', encoding='utf-8')
         self.db = DBHelper()
     def process_item(self, item, spider):
         content = json.dumps(dict(item), ensure_ascii=False) + "\n"
@@ -77,14 +77,14 @@ class DBHelper():
 
     def insert(self, item):
         # 封装insert操作
-        sql = "insert into news(%s) values(%s)"
+        sql = "insert into movie_comment(comment) values(%s)"
         query = self.__dbpool.runInteraction(self._conditional_insert, sql, item)
         query.addErrback(self._handle_error)
         return item
 
     def _conditional_insert(self, canshu, sql, item):
         # 传items的数据
-        params = (item['title'])
+        params = (item['comment'])
         canshu.execute(sql, params)
     def _handle_error(self, failue):
         print(failue)

@@ -15,7 +15,7 @@ BOT_NAME = 'hotspot_crawler'
 SPIDER_MODULES = ['hotspot_crawler.spiders.TencentHotspot', 'hotspot_crawler.spiders.SohuHotspot',
                   'hotspot_crawler.spiders.XinhuaHotspot', 'hotspot_crawler.spiders.HuanqiuHotspot',
                   'hotspot_crawler.spiders.BaiduHotspot', 'hotspot_crawler.spiders.FengHuangHotspot',
-                  'hotspot_crawler.spiders.SinaHotspot']
+                  'hotspot_crawler.spiders.SinaHotspot', 'hotspot_crawler.spiders.doubanComment']
 NEWSPIDER_MODULE = 'hotspot_crawler.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -124,3 +124,4 @@ MYSQL_PORT = 3306
 #   `abstract` text DEFAULT NULL COMMENT '新闻摘要',
 #   PRIMARY KEY (`id`)
 # ) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4
+
