@@ -22,11 +22,11 @@ class SinaHotspotSpider(CrawlSpider):
     reg2 = reg.replace("time", yesterday_time)
     rules = (
         Rule(LinkExtractor(
-            allow=reg),
-            callback='parse_sina_news', follow=True),
-        Rule(LinkExtractor(
             allow=reg2),
             callback='parse_sina_news', follow=True),
+        # Rule(LinkExtractor(
+        #     allow=reg2),
+        #     callback='parse_sina_news', follow=True),
     )
 
     def parse_sina_news(self, response):

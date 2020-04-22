@@ -70,6 +70,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'hotspot_crawler.pipelines.JSONWithEncodingPipeline': 300,
+    'hotspot_crawler.pipelines.BlogscrapyPipeline': 400,
     # 'hotspot_crawler.pipelines.ImageGettingPipeline': 300, 日后扩展图片下载功能备用
 }
 
@@ -97,3 +98,29 @@ today = datetime.datetime.now()
 LOG_FILE = "../log/{}.log".format(today.strftime('%Y%m%d_%H%M%S'))
 HTTPERROR_ALLOWED_CODES = [400, ]
 FEED_EXPORT_ENCODING = 'utf-8'
+
+
+# ######## settings.py ##########
+# #mysql-config
+MYSQL_HOST = 'localhost'
+MYSQL_DBNAME = 'scrapy'
+MYSQL_USER = 'root'
+MYSQL_PASSWD ='rootroot'
+MYSQL_PORT = 3306
+
+# ######## 表结构 ##########
+# CREATE TABLE `news` (
+#   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+#   `title` varchar(200) DEFAULT NULL COMMENT '新闻标题',
+#   `source` varchar(200) DEFAULT NULL COMMENT '新闻来源',
+#   `source_from` varchar(200) DEFAULT NULL COMMENT '新闻二级来源',
+#   `publish_time` varchar(200) DEFAULT NULL COMMENT '发布日期',
+#   `newsId` varchar(200) DEFAULT NULL COMMENT '新闻ID',
+#   `keywords` varchar(200) DEFAULT NULL COMMENT '新闻关键词',
+#   `content_url` varchar(200) DEFAULT NULL COMMENT '新闻链接',
+#   `media_url` varchar(200) DEFAULT NULL COMMENT '新闻图片',
+#   `content` text DEFAULT NULL COMMENT '新闻内容',
+#   `comment_list` text DEFAULT NULL COMMENT '新闻评论',
+#   `abstract` text DEFAULT NULL COMMENT '新闻摘要',
+#   PRIMARY KEY (`id`)
+# ) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4
